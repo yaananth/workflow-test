@@ -1,0 +1,13 @@
+name: CheckSuite
+on: [check_suite]
+jobs:
+  run:
+    name: Github Context
+    runs-on: ubuntu-latest    
+    steps:
+      - name: Dump context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Run a one-line script
+        run: echo Hello, world!
